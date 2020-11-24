@@ -139,8 +139,14 @@ public class DispatcherServlet extends HttpServlet {
                 String subUrl = m.getAnnotation(RequestMapping.class).value();
                 String regex = (url + subUrl).replaceAll("/+", "/");
                 Pattern pattern = Pattern.compile(regex);
+                String requestType = "";
+
+                requestType = m.getAnnotation(RequestMapping.class).method();
+
                 //添加到handlerMapping中去
-                handlerMapping.add(new Handler(entry.getValue(), m, pattern));
+                handlerMapping.add(new Handler(entry.getValue(), m, pattern,requestType));
+                System.out.println("requestType = clazz.getAnnotation(RequestMapping.class).method();   "+requestType);
+
             }
         }
     }
@@ -157,7 +163,6 @@ public class DispatcherServlet extends HttpServlet {
     //servlet调用
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("doGet: " + req.getRequestURI());
         this.doPost(req, resp);
     }
 
@@ -194,11 +199,16 @@ public class DispatcherServlet extends HttpServlet {
         if(handlerMapping.isEmpty())return null;
         String contextPath = req.getContextPath();
         String url = req.getRequestURI();
+        String requestType = req.getMethod();
         //获取请求的url  除去contextPath剩余的
         url = url.replace(contextPath,"").replaceAll("/+","/");
         //遍历handlermapping，找到url匹配的handler
         for (Handler handler:handlerMapping){
-            if(handler.getPattern().matcher(url).matches()){
+            System.out.println("url: " + url);
+            System.out.println("hd url: " + handler.getPattern().matcher(url));
+            System.out.println("reqtype: " + requestType);
+            System.out.println("hd reqtype:" + handler.getRequstType());
+            if(handler.getPattern().matcher(url).matches() && handler.getRequstType().equals(requestType) ){
                 //匹配到就把handler返回
                 return handler;
             }

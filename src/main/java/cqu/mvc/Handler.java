@@ -11,10 +11,26 @@ public class Handler {
     //对应RequestMapping的url正则
     private Pattern pattern;
 
+    private String requstType;
+
+    public String getRequstType() {
+        return requstType;
+    }
+
     public Handler(Object controller, Method method, Pattern pattern) {
         this.controller = controller;
         this.method = method;
         this.pattern = pattern;
+
+    }
+
+
+    public Handler(Object controller, Method method, Pattern pattern,String requstType) {
+        this.controller = controller;
+        this.method = method;
+        this.pattern = pattern;
+        this.requstType=requstType;
+
     }
 
     public Object getController() {

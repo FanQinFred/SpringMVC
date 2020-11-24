@@ -14,8 +14,6 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/web")
 public class MvcController {
-    @Autowire("myservice")
-    private MyService myService;
 
     @RequestMapping(value="/test",method="")
     public String test(HttpServletRequest req, HttpServletResponse res,@RequestParam("word") String word){

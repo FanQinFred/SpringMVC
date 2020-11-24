@@ -12,7 +12,7 @@ public class HandlerAdapter {
     //保存对应的RequestParam  value==>参数的位置
     //或者HttpRequestServlet.getName()===>index
     private Map<String, Integer> paramType;
-
+    final static String REDIRECT = "redirect:";
     public HandlerAdapter(Map<String, Integer> paramType) {
         this.paramType = paramType;
     }
@@ -71,15 +71,21 @@ public class HandlerAdapter {
         //最后反射调用Controller的method方法
         if (handler.getMethod().getReturnType() == String.class) {
             String viewName = (String) handler.getMethod().invoke(handler.getController(), paramValues);
-            render(req, resp, viewName);
-        } else {
+            if (viewName.startsWith(REDIRECT)) {
+                resp.sendRedirect(viewName.substring(REDIRECT.length()));
+                System.out.println(viewName.substring(REDIRECT.length()));
+            }
+            else
+                render(req, resp, viewName);
+        }
+        else {
             handler.getMethod().invoke(handler.getController(), paramValues);
         }
     }
 
     private void render(HttpServletRequest request, HttpServletResponse res, String viewName) throws Exception {
         String viewPath = "/WEB-INF/view/"+ viewName + ".jsp";
-        request.setAttribute("view","nimama");
+        System.out.println(viewPath);
         request.getRequestDispatcher(viewPath).forward(request, res);
 //        res.sendRedirect("https://baidu.com");
     }

@@ -18,11 +18,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SpringMVC</servlet-name>
-    <url-pattern>/web/view</url-pattern>
+    <url-pattern>/user/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SpringMVC</servlet-name>
-    <url-pattern>/web/test</url-pattern>
+    <url-pattern>/disk/show</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SpringMVC</servlet-name>
+    <url-pattern>/disk/upload</url-pattern>
+  </servlet-mapping>
+
   <display-name>Archetype Created Web Application</display-name>
 </web-app>

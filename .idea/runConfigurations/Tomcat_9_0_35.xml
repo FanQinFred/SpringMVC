@@ -1,8 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Tomcat 9.0.35" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.35" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/" />
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="MVCTest:war exploded">
+      <artifact name="SpringMVC:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/" />
         </settings>
@@ -68,6 +69,7 @@
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
         <artifact name="MVCTest:war exploded" />
+        <artifact name="SpringMVC:war exploded" />
       </option>
     </method>
   </configuration>
