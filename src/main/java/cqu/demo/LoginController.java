@@ -8,6 +8,7 @@ import cqu.mvc.model.UserDao;
 import cqu.mvc.model.UserEntity;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -29,6 +30,11 @@ public class LoginController {
 
         if(UserDao.getUserByName(username).getPwd().equals(pwd)){
             System.out.println("suc");
+            Cookie cookie = new Cookie("uploader",username);
+            cookie.setDomain("localhost");
+            cookie.setPath("/");
+            cookie.setMaxAge(3600);
+            res.addCookie(cookie);
             return "redirect:http://localhost:8080/disk/show";
         }else{
             return "login";
