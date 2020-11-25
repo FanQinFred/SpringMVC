@@ -647,128 +647,53 @@
     <user id="201" parent="1" name="disk">
       <Host>%</Host>
     </user>
-    <table id="202" parent="2" name="College"/>
-    <table id="203" parent="2" name="FileEntity"/>
-    <table id="204" parent="2" name="Student"/>
-    <table id="205" parent="2" name="UserEntity"/>
-    <table id="206" parent="2" name="user"/>
-    <column id="207" parent="202" name="id">
-      <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="208" parent="202" name="name">
-      <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="209" parent="202" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="210" parent="203" name="id">
+    <table id="202" parent="2" name="FileEntity"/>
+    <table id="203" parent="2" name="UserEntity"/>
+    <column id="204" parent="202" name="id">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="211" parent="203" name="name">
+    <column id="205" parent="202" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="212" parent="203" name="user_name">
+    <column id="206" parent="202" name="user_name">
       <Position>3</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="213" parent="203" name="FKa2u4e08lo8hgj3sl0itb5ql4e">
+    <index id="207" parent="202" name="FKa2u4e08lo8hgj3sl0itb5ql4e">
       <ColNames>user_name</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="214" parent="203" name="PRIMARY">
+    <key id="208" parent="202" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="215" parent="203" name="FKa2u4e08lo8hgj3sl0itb5ql4e">
+    <foreign-key id="209" parent="202" name="FKa2u4e08lo8hgj3sl0itb5ql4e">
       <ColNames>user_name</ColNames>
       <RefTableName>UserEntity</RefTableName>
       <RefColNames>name</RefColNames>
     </foreign-key>
-    <column id="216" parent="204" name="id">
-      <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="217" parent="204" name="age">
-      <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="218" parent="204" name="name">
-      <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="219" parent="204" name="college_id">
-      <Position>4</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="220" parent="204" name="FKh9qej8xrl9hg1bh310frs7uxn">
-      <ColNames>college_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="221" parent="204" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="222" parent="204" name="FKh9qej8xrl9hg1bh310frs7uxn">
-      <ColNames>college_id</ColNames>
-      <RefTableName>College</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="223" parent="205" name="name">
+    <column id="210" parent="203" name="name">
       <Position>1</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="224" parent="205" name="pwd">
+    <column id="211" parent="203" name="pwd">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="225" parent="205" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>name</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="226" parent="206" name="name">
-      <Position>1</Position>
-      <DataType>varchar(32)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="227" parent="206" name="pwd">
-      <Position>2</Position>
-      <DataType>varchar(32)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="228" parent="206" name="PRIMARY">
+    <key id="212" parent="203" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
       <Primary>1</Primary>

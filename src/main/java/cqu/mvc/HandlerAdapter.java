@@ -86,6 +86,7 @@ public class HandlerAdapter {
     private void render(HttpServletRequest request, HttpServletResponse res, String viewName) throws Exception {
         String viewPath = "/WEB-INF/view/"+ viewName + ".jsp";
         System.out.println(viewPath);
+
         request.getRequestDispatcher(viewPath).forward(request, res);
 //        res.sendRedirect("https://baidu.com");
     }

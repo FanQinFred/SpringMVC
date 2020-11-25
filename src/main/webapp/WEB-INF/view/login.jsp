@@ -17,7 +17,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>OAuth2.0-SSO Signin</title>
+    <title>Sign in</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -34,13 +34,13 @@
     <form class="form-signin" method="post" action="http://localhost:8080/user/login">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="User Name" class="sr-only">User Name</label>
-        <input name="username" id="User Name" class="form-control" placeholder="Email address" required autofocus>
+        <input name="username" id="User Name" class="form-control" placeholder="123" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input placeholder="123" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p><a class="btn btn-lg btn-success" href="http://localhost:8081/app01_register?LOCAL_SERVICE=http://localhost:8081/app01"
-              role="button">Sign up today</a></p>
+        <p>测试账号：123</p>
+        <p>测试密码：123</p>
     </form>
 
 </div> <!-- /container -->

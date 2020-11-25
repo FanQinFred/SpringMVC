@@ -1,24 +1,18 @@
 package cqu.demo;
 
-import cqu.ioc.annotation.Autowire;
 import cqu.ioc.annotation.Controller;
 import cqu.ioc.annotation.RequestMapping;
-import cqu.ioc.annotation.RequestParam;
 import cqu.mvc.model.FileDao;
 import cqu.mvc.model.FileEntity;
 import cqu.mvc.model.UserDao;
-import cqu.mvc.model.UserEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Objects;
 import javax.servlet.http.Part;
@@ -39,15 +33,15 @@ public class DiskController {
                 break;
             }
         }
-        if(!flag)
-            return "redirect:http://localhost:8080/user/login";
-        String fileName=null;
+        if(!flag) return "redirect:http://localhost:8080/user/login";
         List<FileEntity> fileEntityList = FileDao.getFileByUser(username);
+        System.out.println("fileEntityList: "+fileEntityList);
         List<String> fileNameList = new ArrayList<>();
         for (FileEntity fileEntity:
              fileEntityList) {
             fileNameList.add(fileEntity.getName());
         }
+        System.out.println("fileNameList: "+fileNameList);
         req.setAttribute("Files",fileNameList);
         return "disk";
     }
@@ -72,15 +66,12 @@ public class DiskController {
             Part part= req.getPart("file");
             String fileHeader=part.getHeader("content-disposition");
             fileName=fileHeader.substring(fileHeader.indexOf("filename=")+10, fileHeader.lastIndexOf("\""));
-
-            System.out.println("filename: "+fileName);
-
+            fileName=fileName.replace(' ','_');
             String classpath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("/")).getPath();
             String filepath = classpath.replace("WEB-INF/classes", "WEB-INF/file");
             String usrpath = classpath.replace("WEB-INF/classes", "WEB-INF/file/" + username);
             File dir = new File(filepath);
             File usrdir = new File(usrpath);
-            System.out.println(filepath);
             if (!dir.exists()) dir.mkdir();
             if (!usrdir.exists()) usrdir.mkdir();
             part.write(usrpath + File.separator + fileName);
@@ -89,7 +80,7 @@ public class DiskController {
             e.printStackTrace();
         }
 
-        return "disk";
+        return "redirect:http://localhost:8080/disk/show";
 
     }
 

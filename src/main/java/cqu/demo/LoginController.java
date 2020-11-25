@@ -23,6 +23,22 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value = "/signup",method = "GET")
+    public String signupGET(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        return "signup";
+    }
+
+    @RequestMapping(value = "/signup",method = "POST")
+    public String signupPOST(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String username = req.getParameter("username");
+        String pwd = req.getParameter("password");
+        if (username != null & pwd != null) {
+            UserDao.addUser(username, pwd);
+            return "redirect:http://localhost:8080/user/login";
+        }
+        return "signup";
+    }
+
     @RequestMapping(value = "/login",method = "POST")
     public String loginPOST(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String username = req.getParameter("username");
@@ -37,7 +53,7 @@ public class LoginController {
             res.addCookie(cookie);
             return "redirect:http://localhost:8080/disk/show";
         }else{
-            return "login";
+            return "redirect:http://localhost:8080/user/login";
         }
 
     }

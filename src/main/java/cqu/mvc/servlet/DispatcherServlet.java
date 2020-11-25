@@ -148,8 +148,6 @@ public class DispatcherServlet extends HttpServlet {
 
                 //添加到handlerMapping中去
                 handlerMapping.add(new Handler(entry.getValue(), m, pattern,requestType));
-                System.out.println("requestType = clazz.getAnnotation(RequestMapping.class).method();   "+requestType);
-
             }
         }
     }
@@ -207,10 +205,6 @@ public class DispatcherServlet extends HttpServlet {
         url = url.replace(contextPath,"").replaceAll("/+","/");
         //遍历handlermapping，找到url匹配的handler
         for (Handler handler:handlerMapping){
-            System.out.println("url: " + url);
-            System.out.println("hd url: " + handler.getPattern().matcher(url));
-            System.out.println("reqtype: " + requestType);
-            System.out.println("hd reqtype:" + handler.getRequstType());
             if(handler.getPattern().matcher(url).matches() && handler.getRequstType().equals(requestType) ){
                 //匹配到就把handler返回
                 return handler;
