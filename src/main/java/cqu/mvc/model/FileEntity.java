@@ -8,9 +8,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class FileEntity {
 	@Id
-	@Column(length=10,nullable=false)
+	@Column(length=50,nullable=false)
 	private String id;
-	
+
 	@Column(length=50,nullable=false)
 	private String name;
 
@@ -23,6 +23,12 @@ public class FileEntity {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+	public FileEntity(String id, String name,UserEntity user) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.user = user;
 	}
 	public String getId() {
 		return id;

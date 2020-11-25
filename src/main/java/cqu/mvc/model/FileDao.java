@@ -4,10 +4,13 @@ package cqu.mvc.model;
 import cqu.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class FileDao {
-	public static void addFile(String id, String name) {
-		FileEntity fileEntity = new FileEntity(id, name);
+	public static void addFile(String id, String name,UserEntity user) {
+		FileEntity fileEntity = new FileEntity(id, name, user);
 		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
 		try {
@@ -31,19 +34,15 @@ public class FileDao {
 
 	}
 
-	public static void deleteById(String id) {
+	public static List<FileEntity> getFileByUser(String username) {
 
 		Session session = HibernateUtil.getSession();
-		Transaction tx = session.beginTransaction();
 		try {
-			FileEntity fileEntity = session.get(FileEntity.class, id);
-			session.delete(fileEntity);
-			tx.commit();
-		} catch (Exception e) {
-			tx.rollback();
-			e.printStackTrace();
-		}finally {
+			Query<FileEntity> q=session.createQuery("from FileEntity where user_name="+username,FileEntity.class);
+			return q.list();
+		} finally {
 			session.close();
 		}
+
 	}
 }

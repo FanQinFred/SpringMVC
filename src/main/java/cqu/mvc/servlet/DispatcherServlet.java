@@ -8,6 +8,7 @@ import cqu.mvc.Handler;
 import cqu.mvc.HandlerAdapter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
+
+@MultipartConfig
 public class DispatcherServlet extends HttpServlet {
 
     public static final String CONTEXT_CONFIG_LOCATION = "contextConfigLocation";
