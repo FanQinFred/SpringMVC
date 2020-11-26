@@ -36,11 +36,6 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <a class="btn btn-lg btn-success btn-block" href="http://localhost:8080/user/signup" role="button" >Sign up today</a>
-
-
-        <p>测试账号：123</p>
-        <p>测试密码：123</p>
-
     </form>
 </div> <!-- /container -->
 
