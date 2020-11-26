@@ -3,7 +3,7 @@ package cqu.ioc.annotation;
 import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)//作用在字段上面
+@Target(ElementType.FIELD)
 @Documented
 public @interface Autowire {
     String value() default "";
