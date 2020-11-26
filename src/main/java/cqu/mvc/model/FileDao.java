@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.sound.midi.SoundbankResource;
 import java.util.List;
 
 public class FileDao {
@@ -38,7 +39,7 @@ public class FileDao {
 
 		Session session = HibernateUtil.getSession();
 		try {
-			Query<FileEntity> q=session.createQuery("from FileEntity where user_name="+username,FileEntity.class);
+			Query<FileEntity> q=session.createQuery("from FileEntity where user_name='" + username + "'", FileEntity.class);
 			return q.list();
 		} finally {
 			session.close();
