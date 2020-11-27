@@ -12,7 +12,6 @@ public class BeanDefinitionGenerator {
     public static List<BeanDefinition> generate(String className) {
         try {
             Class clazz = Class.forName(className);
-            //如果这个类实现了接口，把接口名作为ids
             String[] ids = generateIds(clazz);
             if (ids == null) return null;
             List<BeanDefinition> list = new ArrayList<BeanDefinition>();
@@ -40,7 +39,6 @@ public class BeanDefinitionGenerator {
             } else {
                 Class<?>[] interfaces = clazz.getInterfaces();
                 ids = new String[interfaces.length];
-                //如果这个类实现了接口，就用接口的类型作为id
                 for (int i = 0; i < interfaces.length; i++) {
                     ids[i] = interfaces[i].getName();
                 }

@@ -12,8 +12,5 @@ public class UnicodeUtils {
         return buffer.toString();
     }
 
-    public static void main(String[] args) {
-
-    }
 }
 

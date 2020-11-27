@@ -34,13 +34,9 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        //取出web.xml中的配置
         String location = getInitParameter(CONTEXT_CONFIG_LOCATION);
-        //创建ApplicationContext上下文,启动bean的解析、创建、注入等过程，完成Spring的依赖注入
         AnnotationApplicationContext context = new AnnotationApplicationContext(location);
-        //解析url和Method的关联关系
         initHandlerMappings(context);
-        //适配器（匹配的过程）
         initHandlerAdapters();
 
     }
@@ -76,10 +72,7 @@ public class DispatcherServlet extends HttpServlet {
         }
     }
 
-    /**
-     * 初始化handlerMappings
-     * @param context
-     */
+
     private void initHandlerMappings(AnnotationApplicationContext context) {
         Map<String, Object> beans = context.getBeans();
         if (beans.isEmpty()) return;
@@ -107,7 +100,6 @@ public class DispatcherServlet extends HttpServlet {
         }
     }
 
-    //servlet调用
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doPost(req, resp);
@@ -123,7 +115,6 @@ public class DispatcherServlet extends HttpServlet {
         }
     }
 
-    //doPost
     private void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         Handler handler = getHandler(req);
         HandlerAdapter ha;

@@ -14,15 +14,11 @@ public class HibernateUtil {
 
 	    static {
 	    	
-	    	//获取hibernate.properties或hibernate.cfg.xml的配置信息
 	    	final Configuration configuration = new Configuration();
 			configuration.addAnnotatedClass( FileEntity.class );
-			configuration.addAnnotatedClass( UserEntity.class );
-			//创建sessionFactory
-			sessionFactory = configuration.buildSessionFactory( new StandardServiceRegistryBuilder().build() );
+			configuration.addAnnotatedClass( UserEntity.class );sessionFactory = configuration.buildSessionFactory( new StandardServiceRegistryBuilder().build() );
 	    }
 	   
-	    //从SessionFactory中获取Session
 	    public static Session getSession(){
 	        return sessionFactory.openSession();
 	    }

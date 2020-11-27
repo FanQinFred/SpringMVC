@@ -4,11 +4,8 @@ import java.util.regex.Pattern;
 
 public class Handler {
 
-    //调用对应的具体controller对象
     private Object controller;
-    //和url匹配的方法
     private Method method;
-    //对应RequestMapping的url正则
     private Pattern pattern;
 
     private String requstType;
