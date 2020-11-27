@@ -17,12 +17,6 @@ public class Handler {
         return requstType;
     }
 
-    public Handler(Object controller, Method method, Pattern pattern) {
-        this.controller = controller;
-        this.method = method;
-        this.pattern = pattern;
-
-    }
 
 
     public Handler(Object controller, Method method, Pattern pattern,String requstType) {

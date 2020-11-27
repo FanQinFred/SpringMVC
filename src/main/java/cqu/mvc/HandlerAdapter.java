@@ -17,14 +17,7 @@ public class HandlerAdapter {
         this.paramType = paramType;
     }
 
-    /**
-     * 具体调用的方法
-     *
-     * @param req
-     * @param resp
-     * @param handler 和url匹配的handler
-     * @throws Exception
-     */
+
     public void handle(HttpServletRequest req, HttpServletResponse resp, Handler handler) throws Exception {
 
         //获取要调用方法的全部参数类型
@@ -33,11 +26,7 @@ public class HandlerAdapter {
         //创建一个反射调用需要的参数值得数组,数组长度和参数长度一样
         Object[] paramValues = new Object[parameterTypes.length];
 
-        /**
-         * 把req，res放到对应的位置上
-         * 如果参数类型-->index  map里面有HttpServletRequest
-         * 就在这个index下的数组赋值req
-         */
+
         if (paramType.containsKey(HttpServletRequest.class.getName())) {
 
             paramValues[paramType.get(HttpServletRequest.class.getName())] = req;
@@ -49,12 +38,6 @@ public class HandlerAdapter {
 
         }
 
-        /**
-         * 循环遍历RequestParam  value==>index
-         * 如果拿到的value在请求参数里面有
-         * 那么就从req中取出来赋值给数组
-         *
-         */
         for (Map.Entry<String, Integer> entry : paramType.entrySet()) {
             String paramName = entry.getKey();
             Integer index = entry.getValue();

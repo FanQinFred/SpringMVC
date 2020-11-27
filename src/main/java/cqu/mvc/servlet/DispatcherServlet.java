@@ -41,12 +41,12 @@ public class DispatcherServlet extends HttpServlet {
         //解析url和Method的关联关系
         initHandlerMappings(context);
         //适配器（匹配的过程）
-        initHandlerAdapters(context);
+        initHandlerAdapters();
 
     }
 
 
-    private void initHandlerAdapters(AnnotationApplicationContext context) {
+    private void initHandlerAdapters() {
         if (handlerMapping.isEmpty()) return;
 
         for (Handler handler : handlerMapping) {
