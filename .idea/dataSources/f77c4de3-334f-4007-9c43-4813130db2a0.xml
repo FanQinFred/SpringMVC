@@ -647,56 +647,5 @@
     <user id="201" parent="1" name="disk">
       <Host>%</Host>
     </user>
-    <table id="202" parent="2" name="FileEntity"/>
-    <table id="203" parent="2" name="UserEntity"/>
-    <column id="204" parent="202" name="id">
-      <Position>1</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="205" parent="202" name="name">
-      <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="206" parent="202" name="user_name">
-      <Position>3</Position>
-      <DataType>varchar(32)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="207" parent="202" name="FKa2u4e08lo8hgj3sl0itb5ql4e">
-      <ColNames>user_name</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="208" parent="202" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="209" parent="202" name="FKa2u4e08lo8hgj3sl0itb5ql4e">
-      <ColNames>user_name</ColNames>
-      <RefTableName>UserEntity</RefTableName>
-      <RefColNames>name</RefColNames>
-    </foreign-key>
-    <column id="210" parent="203" name="name">
-      <Position>1</Position>
-      <DataType>varchar(32)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="211" parent="203" name="pwd">
-      <Position>2</Position>
-      <DataType>varchar(32)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="212" parent="203" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>name</ColNames>
-      <Primary>1</Primary>
-    </key>
   </database-model>
 </dataSource>

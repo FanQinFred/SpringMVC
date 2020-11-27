@@ -26,7 +26,7 @@ public class AnnotationApplicationContext implements ApplicationContext, BeanReg
             //2、载入配置文件
             config.load(bufferedReader);
 
-            //3、注册 将注册信息放入this.beanDefinitions，包括Controller和AutoWire注释
+            //3、注册 将注册信息放入this.beanDefinitions，包括Controller和AutoWire注解
             register();
 
             //4、实例化 将实例放入this.instanceMapping
@@ -40,25 +40,18 @@ public class AnnotationApplicationContext implements ApplicationContext, BeanReg
         }
     }
 
-    /**
-     * 调用具体委派的注入类进行注入
-     */
+
     private void populate() {
         Populator populator = new Populator();
         populator.populate(instanceMapping);
     }
 
-    /**
-     * 调用具体的创建对象创建bean
-     */
+
     private void createBean() {
         BeanCreater creater = new BeanCreater(this);
         creater.create(beanDefinitions);
     }
 
-    /**
-     * 调用具体的注册对象注册bean信息
-     */
     private void register() {
         BeanDefinitionParser parser = new BeanDefinitionParser(this);
         parser.parse(config);

@@ -27,15 +27,7 @@ public class BeanDefinitionGenerator {
     }
 
 
-    /**
-     * 生成id数组
-     * 1.带有@Controller 注解但是注解value没给值,@Controller一般没有
-     * 接口定义,用类的全名作为id返回ids长度为1
-     * 2.@Component 没有value  获取所有的实现的接口,接口名为id,返货ids数组
-     * 长度是实现的接口个数
-     * 3.@Component 有value 返回id=value
-     * 4.不带容器要实例化的注解  null
-     */
+
     private static String[] generateIds(Class clazz) {
         String[] ids = null;
         if (clazz.isAnnotationPresent(Controller.class)) {
