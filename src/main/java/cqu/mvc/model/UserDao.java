@@ -5,6 +5,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
+/**
+ * 用户数据库访问对象
+ */
 public class UserDao {
 	public static void addUser(String name, String pwd) {
 

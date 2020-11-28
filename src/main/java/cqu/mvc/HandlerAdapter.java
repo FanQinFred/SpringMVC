@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 将控制类及其方法映射并填入参数，实现页面跳转的逻辑
+ */
 public class HandlerAdapter {
     private Map<String, Integer> paramType;
     final static String REDIRECT = "redirect:";

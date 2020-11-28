@@ -3,6 +3,9 @@ package cqu.mvc.model;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * 对象关系映射
+ */
 @Entity
 public class UserEntity {
 	@Id

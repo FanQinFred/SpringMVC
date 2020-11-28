@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Objects;
 import javax.servlet.http.Part;
 
+/**
+ * 处理展示文件和上传文件的控制类
+ */
 @Controller
 @RequestMapping("/disk")
 public class DiskController {

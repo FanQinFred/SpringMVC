@@ -2,6 +2,9 @@ package cqu.mvc;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 
+/**
+ * 保存控制类的信息
+ */
 public class Handler {
 
     private Object controller;

@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+/**
+ * 对象关系映射
+ */
 @Entity
 public class FileEntity {
 	@Id

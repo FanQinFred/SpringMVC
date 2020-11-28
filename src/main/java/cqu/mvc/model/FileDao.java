@@ -9,6 +9,9 @@ import org.hibernate.query.Query;
 import javax.sound.midi.SoundbankResource;
 import java.util.List;
 
+/**
+ * 文件数据库访问对象
+ */
 public class FileDao {
 	public static void addFile(String id, String name,UserEntity user) {
 		FileEntity fileEntity = new FileEntity(id, name, user);

@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 处理登录的类
+ */
 @Controller
 @RequestMapping("/user")
 public class LoginController {

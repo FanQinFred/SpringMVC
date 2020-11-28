@@ -9,7 +9,7 @@
 
   <servlet>
     <servlet-name>SpringMVC</servlet-name>
-    <servlet-class>cqu.mvc.servlet.DispatcherServlet</servlet-class>
+    <servlet-class>cqu.mvc.servlet.CoreServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>WEB-INF/applicationContext.properties</param-value>
